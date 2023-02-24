@@ -15,7 +15,7 @@ const TodoList = () => {
     setShouldOpenAddNewTaskModal(true);
   };
   return (
-    <div className="p-4">
+    <div className="p-4 grow overflow-auto">
       <div className="grid gap-4">
         {tasksArr.map((val, index) => {
           return <TodoListItem task={val} />;

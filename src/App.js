@@ -24,7 +24,7 @@ function App() {
         <div className="col-span-3">
           <Sidebar />
         </div>
-        <div className="col-span-7">
+        <div className="col-span-7 flex flex-col overflow-hidden">
           <Header />
           <TodoList tasks={tasksObj[activeList]} />
         </div>

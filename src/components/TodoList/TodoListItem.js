@@ -21,9 +21,9 @@ const TodoListItem = ({ task }) => {
   };
 
   return (
-    <div className="flex justify-between p-3 shadow items-center">
-      <input type="checkbox" value={task.completed} onClick={changeStatus} />
-      <h3 className="">
+    <div className="flex justify-between p-6 shadow items-center">
+      <input type="checkbox" value={task.completed} onClick={changeStatus} className="w-4 h-4" />
+      <h3 className="text-lg">
         {task.completed ? <s>{task.name}</s> : <>{task.name}</>}
       </h3>
       <button className="text-[red]" onClick={openDeleteTask}>
