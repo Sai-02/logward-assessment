@@ -9,13 +9,14 @@ const TodoList = () => {
   const [tasksArr, setTasksArr] = useState(tasksObj[activeList]);
   useEffect(() => {
     setTasksArr(tasksObj[activeList]);
-  }, [activeList]);
+  }, [activeList, tasksObj]);
+
   const openAddTaskModal = () => {
     setShouldOpenAddNewTaskModal(true);
   };
   return (
     <div className="p-4">
-      <div className="">
+      <div className="grid gap-4">
         {tasksArr.map((val, index) => {
           return <TodoListItem task={val} />;
         })}
