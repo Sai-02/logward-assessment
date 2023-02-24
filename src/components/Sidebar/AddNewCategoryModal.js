@@ -9,6 +9,7 @@ const AddNewCategoryModal = ({ shouldOpen, setShouldOpen }) => {
     const obj = tasksObj;
     obj[categoryName] = [];
     setTasksObj({ ...obj });
+    setCategoryName("");
     closeModal();
   };
   const closeModal = () => {

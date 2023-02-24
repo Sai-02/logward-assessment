@@ -15,6 +15,7 @@ const AddNewTaskModal = ({ shouldOpen, setShouldOpen }) => {
     const obj = tasksObj;
     obj[activeList] = tasks;
     setTasksObj({ ...obj });
+    setTaskName("");
     closeModal();
   };
   const closeModal = () => {
