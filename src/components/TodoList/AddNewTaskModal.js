@@ -1,9 +1,20 @@
 import Dialog from "@mui/material/Dialog";
-import React, { useState } from "react";
-
+import React, { useState, useContext } from "react";
+import { TaskContext } from "../../App";
 const AddNewTaskModal = ({ shouldOpen, setShouldOpen }) => {
+  const { tasksObj, activeList, setTasksObj } = useContext(TaskContext);
+
   const [taskName, setTaskName] = useState("");
   const addTask = () => {
+    const tasks = tasksObj[activeList];
+    tasks.push({
+      name: taskName,
+      completed: false,
+      id: Math.random() * 10e16,
+    });
+    const obj = tasksObj;
+    obj[activeList] = tasks;
+    setTasksObj({ ...obj });
     closeModal();
   };
   const closeModal = () => {
