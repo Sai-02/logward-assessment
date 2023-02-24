@@ -1,12 +1,16 @@
-import { useState, createContext } from "react";
+import { useState, createContext, useEffect } from "react";
 import Header from "./components/Header/Header";
 import Sidebar from "./components/Sidebar/Sidebar";
 import TodoList from "./components/TodoList/TodoList";
 const TaskContext = createContext();
 export { TaskContext };
 function App() {
-  const [activeList, setActiveList] = useState("");
-  const [tasksObj, setTasksObj] = useState({});
+  const [activeList, setActiveList] = useState("My Day");
+  const [tasksObj, setTasksObj] = useState({
+    "My Day": [],
+  });
+  useEffect(() => {
+  }, [tasksObj]);
   return (
     <TaskContext.Provider
       value={{
@@ -22,7 +26,7 @@ function App() {
         </div>
         <div className="col-span-7">
           <Header />
-          <TodoList />
+          <TodoList tasks={tasksObj[activeList]} />
         </div>
       </div>
     </TaskContext.Provider>

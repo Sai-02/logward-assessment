@@ -1,9 +1,14 @@
 import Dialog from "@mui/material/Dialog";
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
+import { TaskContext } from "../../App";
 
 const AddNewCategoryModal = ({ shouldOpen, setShouldOpen }) => {
   const [categoryName, setCategoryName] = useState("");
+  const { tasksObj, setTasksObj } = useContext(TaskContext);
   const addCategpry = () => {
+    const obj = tasksObj;
+    obj[categoryName] = [];
+    setTasksObj({ ...obj });
     closeModal();
   };
   const closeModal = () => {

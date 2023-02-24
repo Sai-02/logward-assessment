@@ -4,6 +4,10 @@ import AddNewTaskModal from "./AddNewTaskModal";
 const TodoList = () => {
   const [shouldOpenAddNewTaskModol, setShouldOpenAddNewTaskModal] =
     useState(false);
+
+  const openAddTaskModal = () => {
+    setShouldOpenAddNewTaskModal(true);
+  };
   return (
     <div className="p-4">
       <div className="">
@@ -12,7 +16,9 @@ const TodoList = () => {
         })}
       </div>
       <div className="mt-6">
-        <button className="text-[#42a5f5]">+ Add New Task</button>
+        <button className="text-[#42a5f5]" onClick={openAddTaskModal}>
+          + Add New Task
+        </button>
       </div>
       <AddNewTaskModal
         shouldOpen={shouldOpenAddNewTaskModol}
